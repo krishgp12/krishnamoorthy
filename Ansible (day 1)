@@ -57,6 +57,68 @@ Inventory
 =========
 Managed servers information contain 
 
+4 Push vs Pull Model
 
-2. 
+Push Model: Controller nundi target server ki configuration push chestam.
+
+Pull Model: Target server itself configuration ni pull chestundi.
+Example:
+pupper
+chef (commonly agent based pull architecture )
+
+***** Easy interview answer******
+Anisble follows an agentless push based architecture, where the control node pushes configuration to managed nodes, generally using SSH for linux systems.
+5. YAML (yet another markup language) -- Configuration / Ansible  name:nginx
+XML ( extensible markup language)   -- APIs/Data exchange        "name":"nginx"
+json ( javascript object notation)  -- Data exchange/legacy systems    <name>nginx</name>
+
+6. Anisble Playbook
+==================
+Playbook = YAML file containing automation instructions.
+Example:
+- name:Configure web server
+  hosts:web
+  become:yes
+  tasks:
+  - name:Install nginx
+    apt:
+    name:nginx
+    state:present
+  - name:Start nginx
+    service:
+    name:nginx
+    state:started
+RUN: ansible-playbook -i inventory web.yaml
+
+Playbook structure:
+====================
+Playbook
+play --> Which servers ( hosts:web)
+Tasks  --> What should happen? (- name:Install nginx)
+Modules  --> Which ansible functionality? (apt)
+
+***** Important Ansible Terms******
+Controller ( Machine where Ansible runs)
+Managed Node ( Server managed by ansible )
+Inventory ( List/groups of target servers)
+Module ( pre-built unit used to perform a task )
+play ( collection of tasks for selected hosts)
+playbook ( one or more plays written in YAML)
+
+7/ Idempotency ***
+=================
+Idempotency = same playbook repeatedly run chesina unwanted change create avvakunda desired state maintain cheyyadam.
+Example:
+apt:
+ name:nginx
+ state:present
+Nginx already installed unte, again unnecessary installation cheyyadu
+
+******Interview Answer*********
+Idempotency means an ansible task can be executed multiple times while maintaining the desired state without making unnecessary changes.
+
+
+
+
+
 
