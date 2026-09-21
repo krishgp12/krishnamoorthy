@@ -1,0 +1,62 @@
+Ansible
+=========
+Day 1:
+
+1. What is Configuration Management?
+Configuration managment = servers/Infrastructure ni consistent & controlled way to configure/manage.
+Examples:
+Install packages
+Create Users
+Manage files
+start/stop services
+Deploy applications
+Change configuration files
+
+why ansible?
+============
+without ansible:
+server1-- manually configure
+server2 -- manually configure
+server3 -- manually configure
+
+with ansible:
+==============
+Ansible controller ==> Automatically configure ==> server1,server2,server3
+Benefits:
+Automation
+Less manual work
+consistency 
+faster deployment
+
+2. What is Ansible?
+==================
+Ansible is an open source automation and configuration management tool.
+It can used for 
+Provisioning-->configuration-->Deployment-->Orchestration
+
+Linux --> usually ssh
+window --> usually WinRM
+
+3. Ansible Architecture
+======================
+Ansible controller
+       |
+  Inventory
+       |
+server1   server2   server3
+   |         |         |
+  SSH       SSH       SSH
+
+ Controller Node
+================
+Ansible commands/playbooks run machine
+Managed Node
+============
+Ansible manage target server
+Inventory
+=========
+Managed servers information contain 
+
+
+2. 
+
